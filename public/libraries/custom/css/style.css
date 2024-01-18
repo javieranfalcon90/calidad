@@ -1,0 +1,67 @@
+.actions{
+  width: 250px !important;
+}
+
+.swal2-actions button{
+  margin: 0 0.5rem;
+}
+
+.form-label{
+  font-weight: bold !important;
+}
+
+.btn-primary{
+  background: #4154f1 !important;
+}
+
+.btn-primary:hover {
+  background: #6776f4 !important;
+  color: #fff;
+}
+
+.text-primary{
+  color: #4154f1 !important;
+}
+
+.bg-primary{
+  background: #4154f1 !important;
+}
+
+.page-link.active, .active > .page-link{
+  background: #4154f1 !important;
+  border-color: #4154f1 !important;
+}
+
+div.dataTables_processing > div:last-child > div{
+  background: #4154f1 !important;
+}
+
+.comments-style{
+  padding: 15px;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
+
+.activity .activity-item:last-child .activity-content{
+  padding-bottom: 20px !important;
+  margin-bottom: 0 !important;
+}
+
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
