@@ -25,8 +25,7 @@ return new class extends Migration
             $table->text('participantes');
 
             $table->string('manifestacionesnegativas')->nullable();
-            $table->unsignedBigInteger('nivel_id')->nullable();
-            $table->foreignId('nivel_id')->constrained('niveles');
+            $table->foreignId('nivel_id')->nullable()->constrained('niveles');
             
             $table->timestamps();
         });

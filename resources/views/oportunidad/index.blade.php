@@ -39,6 +39,7 @@
                                 <tr>
                                     <th></th>
                                     <th>Código</th>
+                                    <th>Tipo</th>
                                     <th>Descripción</th>
                                     <th>Estado</th>
                                     <th>Proceso</th>
@@ -74,6 +75,7 @@
         var columns = [
             {data: 'id'},
             {data: 'codigo'},
+            {data: 'tipo'},
             {data: 'descripcion'},
             {data: 'estado'},
             {data: 'proceso_id'},

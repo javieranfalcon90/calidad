@@ -1,15 +1,21 @@
 <div class="row g-3">   
 
-    <div class="col-6">
+    <div class="col-4">
         <label class="form-label">Código*</label>
         {{ Form::text('codigo', $oportunidad->codigo, ['class' => 'form-control' . ($errors->has('codigo') ? ' is-invalid' : ''), 'placeholder' => '']) }}
         {!! $errors->first('codigo', '<div class="invalid-feedback">:message</div>') !!}
     </div>
 
-    <div class="col-6">
+    <div class="col-4">
         <label class="form-label">Fecha de Notificación*</label>
         {{ Form::text('fechanotificacion', $oportunidad->fechanotificacion, ['class' => 'form-control datepick' . ($errors->has('fechanotificacion') ? ' is-invalid' : ''), 'placeholder' => '']) }}
         {!! $errors->first('fechanotificacion', '<div class="invalid-feedback">:message</div>') !!}
+    </div>
+
+    <div class="col-4">
+        <label class="form-label">Tipo de Fuente*</label>
+        {{ Form::select('tipo', ['Riesgo' => 'Riesgo', 'Mejora' => 'Mejora'], $oportunidad->tipo, ['class' => 'select2 form-control' . ($errors->has('tipo') ? ' is-invalid' : ''), 'placeholder' => '']) }}
+        {!! $errors->first('tipo', '<div class="invalid-feedback">:message</div>') !!}
     </div>
 
     @role('ROLE_ADMIN')

@@ -70,6 +70,8 @@ class DashboardController extends Controller
 
         //---------------------------------------------------------------------------------------------------------------
 
+        $procesos = [];
+        $cantnoconf4 = [];
         $procesosall = Proceso::all();
         foreach($procesosall as $p){
             $procesos[] = $p->nombre;
@@ -77,6 +79,8 @@ class DashboardController extends Controller
         }
 
         //--------------------------------------------------------------------------------------------------------------------
+        $total = [];
+        $cumplidos = [];
         foreach($procesosall as $p){
             $acc = Accion::join('analisis', 'analisis.id', '=', 'acciones.accionable_id')
                     ->join('noconformidades', 'noconformidades.id', '=', 'analisis.analisisable_id')
@@ -95,7 +99,8 @@ class DashboardController extends Controller
         }
 
         //----------------------------------------------------------------------------------------------------------------------
-
+        $niveles = [];
+        $cantrisk1 = [];
         $nivelesall = Nivel::all();
         foreach($nivelesall as $n){
             $niveles[] = $n->nombre;
@@ -134,6 +139,7 @@ class DashboardController extends Controller
         }
         //----------------------------------------------------------------------------------------------------------------
 
+        $efectividades = [];
         $efectividadesall = Efectividad::all();
         $porcientoxefectividades = [];
 
@@ -162,7 +168,7 @@ class DashboardController extends Controller
 
         //-----------------------------------------------------------------------------------------------------------------
 
-
+        $cantriesgosxefectividadxannoxproceso = [];
         foreach($procesosall as $p){
             $cantidad = [];
             foreach($efectividadesall as $e){

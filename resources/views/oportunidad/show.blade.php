@@ -66,15 +66,20 @@
                             </div>
 
                             <div class="col-md-4">
-                                <label class="form-label">Proceso</label>
-                                <input type="text" class="form-control" disabled
-                                    value="{{ $oportunidad->proceso->nombre }}">
+                                <label class="form-label">Tipo</label>
+                                <input type="text" class="form-control" disabled value="{{ $oportunidad->tipo }}">
                             </div>
 
                             <div class="col-md-4">
                                 <label class="form-label">Fecha de Notificación</label>
                                 <input type="text" class="form-control" disabled
                                     value="{{ $oportunidad->fechanotificacion }}">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label">Proceso</label>
+                                <input type="text" class="form-control" disabled
+                                    value="{{ $oportunidad->proceso->nombre }}">
                             </div>
 
                             <div class="col-md-12">

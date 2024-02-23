@@ -120,6 +120,7 @@ class OportunidadController extends Controller
 
         $validate = request()->validate([
             'codigo' => ['required', new Alphanum_spaces, 'unique:oportunidades'],
+            'tipo' => 'required',
             'descripcion' => 'required',
             'proceso_id' => 'required',
             'estado' => 'required',
@@ -128,7 +129,10 @@ class OportunidadController extends Controller
 
         $oportunidad = Oportunidad::create($validate);
 
-        $users = User::role('ROLE_CALIDAD')->get();
+        $users = User::with('roles')->whereHas("roles", function($q) {
+            $q->where("name", 'ROLE_CALIDAD');
+        })->get();
+        
         if($users){
             Notification::send($users, new OportunidadAlert($oportunidad));
         }
@@ -183,6 +187,7 @@ class OportunidadController extends Controller
 
         $validate = request()->validate([
             'codigo' => ['required', new Alphanum_spaces, 'unique:oportunidades,codigo,'. $oportunidad->id],
+            'tipo' => 'required',
             'descripcion' => 'required',
             'proceso_id' => 'required',
             'fechanotificacion' => 'required'

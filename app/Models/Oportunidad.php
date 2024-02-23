@@ -17,7 +17,7 @@ class Oportunidad extends Model implements Auditable
     public $table = 'oportunidades';
 
 
-    protected $fillable = ['codigo', 'descripcion', 'estado', 'aprovechamiento', 'proceso_id', 'fechanotificacion', 'fechacierre'];
+    protected $fillable = ['codigo', 'tipo', 'descripcion', 'estado', 'aprovechamiento', 'proceso_id', 'fechanotificacion', 'fechacierre'];
 
     protected function fechanotificacion(): Attribute
     {

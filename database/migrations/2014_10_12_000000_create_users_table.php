@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             
-            $table->unsignedBigInteger('proceso_id')->nullable();
-            $table->foreignId('proceso_id')->constrained('procesos');
+            $table->foreignId('proceso_id')->nullable()->constrained('procesos');
 
             $table->integer('estado')->default(1);
 

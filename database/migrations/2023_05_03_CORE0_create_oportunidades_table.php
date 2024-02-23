@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOportunidadTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -19,9 +19,10 @@ class CreateOportunidadTable extends Migration
             $table->foreignId('proceso_id')->constrained('procesos');
 
             $table->string('codigo')->unique();
+            $table->string('tipo');
 			$table->text('descripcion');
 			$table->string('estado');
-            $table->string('aprovechamiento');
+            $table->string('aprovechamiento')->nullable();
 			$table->date('fechanotificacion');
 			$table->date('fechacierre')->nullable();
             $table->timestamps();
@@ -37,4 +38,4 @@ class CreateOportunidadTable extends Migration
     {
         Schema::dropIfExists('oportunidades');
     }
-}
+};

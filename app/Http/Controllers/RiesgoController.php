@@ -155,7 +155,9 @@ class RiesgoController extends Controller
 
         $riesgo = Riesgo::create($validate);
 
-        $users = User::role('ROLE_CALIDAD')->get();
+        $users = User::with('roles')->whereHas("roles", function($q) {
+            $q->where("name", 'ROLE_CALIDAD');
+        })->get();
         if($users){
             Notification::send($users, new RiesgoAlert($riesgo));
         }

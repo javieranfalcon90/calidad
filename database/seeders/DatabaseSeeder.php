@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Hash;
 
@@ -127,6 +128,12 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name' => 'Delete_Any_Valoraciones', 'group' => 'Valoraciones']);
         Permission::create(['name' => 'Delete_Own_Valoraciones', 'group' => 'Valoraciones']);
 
+        $role = Role::create(['name' => 'ROLE_ADMIN']);
+
+        $permissions = Permission::all();
+
+        $role->syncPermissions($permissions);
+
         $user = User::create([
             'name' => 'Administrador',
             'email' => 'webmaster@cecmed.cu',
@@ -134,6 +141,9 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Soloyoadministro+.'),
             'proceso_id' => null
         ]);
+
+        $r = Role::first();
+        $user->assignRole($r);
 
 
         // \App\Models\User::factory(10)->create();
